@@ -5,6 +5,8 @@ Prezto is the configuration framework for [Zsh][1]; it enriches the command line
 interface environment with sane defaults, aliases, functions, auto completion,
 and prompt themes.
 
+This is a customized version for me. If you would like to use this yourself, I recommmend you to start from the original: https://github.com/sorin-ionescu/prezto.
+
 Installation
 ------------
 
@@ -18,15 +20,12 @@ non-standard core utilities.
 
   2. Clone the repository:
 
-        git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+        git clone --recursive https://github.com/tregusti/prezto.git
 
-  3. Create a new Zsh configuration by copying the Zsh configuration files
-     provided:
+  3. Install the configuration by invoking a helper that is symlinking the needed files:
 
-        setopt EXTENDED_GLOB
-        for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-          ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-        done
+        cd prezto
+        ./create-symlinks.sh
 
   4. Set Zsh as your default shell:
 
