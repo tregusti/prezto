@@ -74,8 +74,17 @@ function prompt_tregusti_precmd() {
 }
 
 function build_prompt() {
-  prompt_segment green default '%(1?;%{%F{red}%}✘ ;)%(!;%{%F{yellow}%}⚡ ;)%(1j;%{%F{cyan}%}%j⚙ ;)'
-  prompt_segment black default '%{%F{blue}%}%n%{%F{red}%} at %{%F{green}%}%M'
+  # Elevated privileges (sudo)
+  local priv='%(!;%{%F{yellow}%}⚡ ;)'
+  
+  # Exit code != 0 (doesn't seem to work...)
+  # local code='%(?;;%{%F{red}%}✘ )'
+  
+  # Background processes running
+  # local back='%(1j;%{%F{cyan}%}%j⚙ ;)'
+  
+  # User and host
+  prompt_segment black default '$priv%{%F{blue}%}%n%{%F{red}%} at %{%F{green}%}%M'
   prompt_segment blue black '%3~'
   if $git_status; then
     prompt_segment green black '${(e)git_info[prompt]}${git_info[status]}'
