@@ -3,6 +3,7 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Glenn Jorde <glenn@†regusti.com>
 #
 
 # Source Prezto.
@@ -12,3 +13,6 @@ fi
 
 # Customize to your needs...
 
+export EDITOR='mate -w'
+
+alias gh="git hist"
