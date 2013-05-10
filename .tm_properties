@@ -1,0 +1,7 @@
+# Files with no extension should be considered a shell script
+[ attr.file.unknown-type ]
+fileType = "source.shell"
+
+# new and not yet saved files should be considered a shell script
+[ attr.untitled ]
+fileType = 'source.shell'
