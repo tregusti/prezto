@@ -15,4 +15,10 @@ fi
 
 export EDITOR='mate -w'
 
+# If rvm is present, add to path.
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+  PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+fi
+
 alias gh="git hist"
+
