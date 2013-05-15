@@ -6,5 +6,11 @@ fi
 
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  local dotpath="$HOME/.${rcfile:t}"
+  if [[ -a "$dotpath" ]]; then
+    print "Skipping: $dotpath"
+  else
+    print "Linking: $dotpath"
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  fi
 done
