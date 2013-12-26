@@ -7,7 +7,7 @@
 #
 
 CURRENT_BG='NONE'
-SEGMENT_SEPARATOR='⮀'
+SEGMENT_SEPARATOR=''
 
 
 # Begin a segment
@@ -113,7 +113,7 @@ function prompt_tregusti_setup() {
   zstyle ':prezto:module:git:info:added'      format '✚'
   zstyle ':prezto:module:git:info:ahead'      format '⬆'
   zstyle ':prezto:module:git:info:behind'     format '⬇'
-  zstyle ':prezto:module:git:info:branch'     format '⭠ %b'
+  zstyle ':prezto:module:git:info:branch'     format ' %b'
   zstyle ':prezto:module:git:info:commit'     format '➦ %.7c'
   zstyle ':prezto:module:git:info:deleted'    format '✖'
   zstyle ':prezto:module:git:info:modified'   format '✱'
