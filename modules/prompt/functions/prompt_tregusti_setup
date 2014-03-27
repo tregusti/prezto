@@ -76,15 +76,28 @@ function prompt_tregusti_precmd() {
 function build_prompt() {
   # Elevated privileges (sudo)
   local priv='%(!;%{%F{yellow}%}⚡ ;)'
-  
+
+  # http://unix.stackexchange.com/a/9607
+  local SSH=0
+  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    SSH=1
+  else
+    case $(ps -o comm= -p $PPID) in
+      sshd|*/sshd) SSH=1;;
+    esac
+  fi
+
   # Exit code != 0 (doesn't seem to work...)
   # local code='%(?;;%{%F{red}%}✘ )'
-  
+
   # Background processes running
   # local back='%(1j;%{%F{cyan}%}%j⚙ ;)'
-  
+
   # User and host
-  prompt_segment black default '$priv%{%F{blue}%}%n%{%F{red}%} at %{%F{green}%}%M'
+  prompt_segment green black '%D{%H:%M:%S}'
+  if [ $SSH == 1 ]; then
+    prompt_segment black default '$priv%{%F{blue}%}%n%{%F{red}%} at %{%F{green}%}%M'
+  fi
   prompt_segment blue black '%3~'
   if $git_status; then
     prompt_segment green black '${(e)git_info[prompt]}${git_info[status]}'
@@ -130,7 +143,7 @@ function prompt_tregusti_setup() {
   PROMPT='
 %{%f%b%k%}$(build_prompt)
 ${editor_info[keymap]} '
-  RPROMPT='%D{%H:%M:%S}'
+  # RPROMPT='%D{%H:%M:%S}'
   SPROMPT='zsh: Correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
