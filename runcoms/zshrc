@@ -21,3 +21,13 @@ fi
 #   fi
 # }
 # alias cd=__cd
+
+
+# Load any supplementary scripts
+
+zshrcd="$HOME/.zshrc.d/"
+[[ -d $DIR ]] && for config in $DIR/*.zsh; do
+    source "$config"
+done
+unset -v zshrcd
+unset -v config
