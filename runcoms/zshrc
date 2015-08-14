@@ -11,3 +11,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+
+# Load local rc files in current folder.
+# __cd() {
+#   \cd $@
+#   if [[ -f ./.local.zsh ]]; then
+#     source ./.local.zsh
+#   fi
+# }
+# alias cd=__cd
