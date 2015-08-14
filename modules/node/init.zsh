@@ -32,3 +32,6 @@ if (( $+commands[npm] )); then
 
   unset cache_file
 fi
+
+# Load Automatic versioning switch of node
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
