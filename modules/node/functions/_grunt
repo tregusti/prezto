@@ -1,0 +1,18 @@
+#compdef grunt
+#autoload
+
+#
+# Completes grunt.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+BIN_PATH=`which -s grunt`
+MODULE_PATH="${BIN_PATH%%/bin/grunt}"
+if [[ $MODULE_PATH =~ '^.* -> (.*$)' ]]; then
+  COMP_PATH="$match/completion/zsh"
+  if [[ -f $COMP_PATH ]]; then
+    source $COMP_PATH
+  fi
+fi
