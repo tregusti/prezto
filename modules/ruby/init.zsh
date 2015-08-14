@@ -48,21 +48,22 @@ fi
 #
 
 # General
-alias rb='ruby'
+# alias rb='ruby'
 
 # Bundler
 if (( $+commands[bundle] )); then
-  alias rbb='bundle'
-  alias rbbe='bundle exec'
-  alias rbbi='bundle install --path vendor/bundle'
-  alias rbbl='bundle list'
-  alias rbbo='bundle open'
-  alias rbbp='bundle package'
-  alias rbbu='bundle update'
-  alias rbbI='rbbi \
-    && bundle package \
-    && print .bundle       >>! .gitignore \
-    && print vendor/assets >>! .gitignore \
-    && print vendor/bundle >>! .gitignore \
-    && print vendor/cache  >>! .gitignore'
+  alias be='bundle exec'
+  # alias rbb='bundle'
+  # alias rbbe='bundle exec'
+  # alias rbbi='bundle install --path vendor/bundle'
+  # alias rbbl='bundle list'
+  # alias rbbo='bundle open'
+  # alias rbbp='bundle package'
+  # alias rbbu='bundle update'
+  # alias rbbI='rbbi \
+  #   && bundle package \
+  #   && print .bundle       >>! .gitignore \
+  #   && print vendor/assets >>! .gitignore \
+  #   && print vendor/bundle >>! .gitignore \
+  #   && print vendor/cache  >>! .gitignore'
 fi
