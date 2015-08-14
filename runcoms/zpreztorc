@@ -37,6 +37,7 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'ruby' \
+  'homebrew' \
   'git' \
   'node' \
   $OSX \
