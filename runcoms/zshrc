@@ -25,9 +25,8 @@ fi
 
 # Load any supplementary scripts
 
-zshrcd="$HOME/.zshrc.d/"
-[[ -d $DIR ]] && for config in $DIR/*.zsh; do
-    source "$config"
-done
-unset -v zshrcd
-unset -v config
+localrc="$HOME/.localrc"
+if [[ -f $localrc ]]; then
+  source "$localrc"
+fi
+unset -v localrc
